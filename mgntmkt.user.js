@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://mm.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.75517818
+// @version      1.0.75569505
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=kazanexpress.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/mgntmkt.user.js

@@ -7,7 +7,7 @@
 // @grant        GM_notification
 // @match        https://lavka.yandex.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.75621077
+// @version      1.0.75621094
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=yandex.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/lavka.user.js

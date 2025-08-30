@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://habr.com/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.75655705
+// @version      1.0.75656429
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=habr.com
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/habr.user.js

@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://prodoctorov.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      2.0.75784592
+// @version      2.0.75785990
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=prodoctorov.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/prodoc.user.js

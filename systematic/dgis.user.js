@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://2gis.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.75925047
+// @version      1.0.75968458
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=2gis.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/dgis.user.js

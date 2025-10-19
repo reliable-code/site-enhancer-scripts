@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://www.dns-shop.ru/catalog/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.76081468
+// @version      1.0.76089594
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=dns-shop.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/dns.user.js

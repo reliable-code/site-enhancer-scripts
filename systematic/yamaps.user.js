@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://yandex.ru/maps/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.76502818
+// @version      1.0.76503911
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=yandex.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/yamaps.user.js

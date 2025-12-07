@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://www.pepper.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.76503911
+// @version      1.0.76511019
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=pepper.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/pepper.user.js

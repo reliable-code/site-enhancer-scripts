@@ -9,7 +9,7 @@
 // @grant        GM_getValue
 // @match        https://www.ozon.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      3.1.76503911
+// @version      3.1.76511019
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ozon.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/ozon.user.js

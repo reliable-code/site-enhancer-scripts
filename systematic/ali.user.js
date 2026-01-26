@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://aliexpress.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.76943516
+// @version      1.0.76943879
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=aliexpress.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/ali.user.js

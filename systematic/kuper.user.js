@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://kuper.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.76944551
+// @version      1.0.76953891
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=kuper.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/kuper.user.js

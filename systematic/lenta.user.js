@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://*.lenta.com/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.77032393
+// @version      1.0.77032510
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=lenta.com
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/lenta.user.js

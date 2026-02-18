@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://www.kinopoisk.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.77136793
+// @version      1.0.77144488
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=kinopoisk.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/kinop.user.js

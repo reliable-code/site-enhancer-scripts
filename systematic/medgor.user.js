@@ -6,7 +6,7 @@
 // @grant        GM_getValue
 // @match        https://medgorodok.ru/drugs/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.77136792
+// @version      1.0.77144487
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=medgorodok.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/medgor.user.js

@@ -10,7 +10,7 @@
 // @match        https://*.keenetic.io/*
 // @match        https://*.netcraze.io/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.78723544
+// @version      1.0.78723631
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=keenetic.io
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/specific/keenetic.user.js

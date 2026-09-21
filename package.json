@@ -1,0 +1,7 @@
+{
+  "name": "site-enhancer-scripts",
+  "private": true,
+  "scripts": {
+    "build": "node web/build.js"
+  }
+}

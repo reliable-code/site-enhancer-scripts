@@ -8,7 +8,7 @@
 // @grant        GM_getValue
 // @match        https://www.wildberries.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      2.0.79026244
+// @version      2.0.79026779
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wildberries.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/wb.user.js

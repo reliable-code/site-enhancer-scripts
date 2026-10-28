@@ -7,7 +7,7 @@
 // @grant        GM_getValue
 // @match        https://www.vseinstrumenti.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.79318977
+// @version      1.0.79319382
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vseinstrumenti.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/vseins.user.js

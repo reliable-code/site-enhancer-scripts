@@ -5,7 +5,7 @@
 // @grant        GM_getValue
 // @match        https://*.hh.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.79429900
+// @version      1.0.79433156
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hh.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/hh.user.js

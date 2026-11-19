@@ -7,7 +7,7 @@
 // @grant        GM_addValueChangeListener
 // @match        https://www.sima-land.ru/*
 // @namespace    https://github.com/reliable-code/site-enhancer-scripts
-// @version      1.0.79508966
+// @version      1.0.79509620
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=sima-land.ru
 // @author       reliable-code
 // @downloadURL  https://raw.githubusercontent.com/reliable-code/site-enhancer-scripts/main/systematic/sima.user.js

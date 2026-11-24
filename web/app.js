@@ -3,6 +3,7 @@ const BRANCH = 'main';
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
 const TREE_URL = `https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`;
 const SCRIPT_PATTERN = /^(systematic|specific)\/[^/]+\.user\.js$/;
+const TIMESTAMP_SUFFIX = /^\d{8}$/;
 const CATEGORIES = [
     {
         id: 'systematic',
@@ -45,6 +46,12 @@ function fileName(path) {
     return path.split('/').pop().replace(/\.user\.js$/, '');
 }
 
+function versionUpdatedAt(version) {
+    const segments = version.split('.');
+    const suffix = segments[segments.length - 1];
+    return TIMESTAMP_SUFFIX.test(suffix) ? Number(`1${suffix}`) * 10000 : 0;
+}
+
 async function fetchScript(path, url) {
     const response = await fetch(url, {
         headers: { Range: 'bytes=0-2047' },
@@ -68,6 +75,7 @@ async function fetchScript(path, url) {
         name: metadata.name || fileName(path),
         description: metadata.description || '',
         version: metadata.version || '',
+        updatedAt: versionUpdatedAt(metadata.version || ''),
         downloadURL: metadata.downloadURL || RAW_BASE + path,
     };
 }
@@ -96,23 +104,11 @@ async function loadScripts() {
                 name: fileName(path),
                 description: '',
                 version: '',
+                updatedAt: 0,
                 downloadURL: RAW_BASE + path,
             };
         }
     }));
-}
-
-function compareVersions(left, right) {
-    const leftParts = left.version.split('.').map((part) => Number(part) || 0);
-    const rightParts = right.version.split('.').map((part) => Number(part) || 0);
-    const length = Math.max(leftParts.length, rightParts.length);
-
-    for (let index = 0; index < length; index += 1) {
-        const difference = (rightParts[index] || 0) - (leftParts[index] || 0);
-        if (difference !== 0) return difference;
-    }
-
-    return 0;
 }
 
 function sortScripts(scripts, mode) {
@@ -121,7 +117,7 @@ function sortScripts(scripts, mode) {
     if (mode === 'name') {
         sorted.sort((left, right) => left.name.localeCompare(right.name));
     } else {
-        sorted.sort((left, right) => compareVersions(left, right) || left.name.localeCompare(right.name));
+        sorted.sort((left, right) => right.updatedAt - left.updatedAt || left.name.localeCompare(right.name));
     }
 
     return sorted;
@@ -148,10 +144,31 @@ function createCard(script) {
     const footer = document.createElement('div');
     footer.className = 'script-card__footer';
 
+    const meta = document.createElement('div');
+    meta.className = 'script-meta';
+
     const version = document.createElement('span');
     version.className = 'version';
     version.textContent = script.version ? `v${script.version}` : 'v?';
     if (!script.version) version.title = 'Version unavailable';
+    meta.append(version);
+
+    if (script.updatedAt) {
+        const updated = new Date(script.updatedAt);
+        const updatedLabel = document.createElement('time');
+        updatedLabel.className = 'updated';
+        updatedLabel.dateTime = [
+            updated.getFullYear(),
+            String(updated.getMonth() + 1).padStart(2, '0'),
+            String(updated.getDate()).padStart(2, '0'),
+        ].join('-');
+        updatedLabel.textContent = updated.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+        });
+        meta.append(updatedLabel);
+    }
 
     const link = document.createElement('a');
     link.className = 'install-link';
@@ -165,7 +182,7 @@ function createCard(script) {
     arrow.textContent = '↗';
     link.append(arrow);
 
-    footer.append(version, link);
+    footer.append(meta, link);
     card.append(body, footer);
 
     return card;

@@ -257,6 +257,17 @@ h1 {
     font-size: 12px;
 }
 
+.script-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.updated {
+    color: #87938e;
+    font-size: 12px;
+}
+
 .install-link {
     display: inline-flex;
     min-height: 40px;

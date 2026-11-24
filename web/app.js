@@ -43,11 +43,10 @@ function fileName(path) {
     return path.split('/').pop().replace(/\.user\.js$/, '');
 }
 
-async function fetchScript(path) {
-    const url = RAW_BASE + path;
+async function fetchScript(path, url) {
     const response = await fetch(url, {
         headers: { Range: 'bytes=0-2047' },
-        cache: 'no-cache',
+        cache: 'no-store',
     });
 
     if (!response.ok) throw new Error(`Failed to fetch ${path}: ${response.status}`);
@@ -56,7 +55,7 @@ async function fetchScript(path) {
     let metadata = parseMetadata(text);
 
     if (!metadata.version && !text.includes('// ==/UserScript==')) {
-        const fullResponse = await fetch(url, { cache: 'no-cache' });
+        const fullResponse = await fetch(url, { cache: 'no-store' });
         if (!fullResponse.ok) throw new Error(`Failed to fetch ${path}: ${fullResponse.status}`);
         text = await fullResponse.text();
         metadata = parseMetadata(text);
@@ -67,12 +66,13 @@ async function fetchScript(path) {
         name: metadata.name || fileName(path),
         description: metadata.description || '',
         version: metadata.version || '',
-        downloadURL: metadata.downloadURL || url,
+        downloadURL: metadata.downloadURL || RAW_BASE + path,
     };
 }
 
 async function loadScripts() {
-    const response = await fetch(TREE_URL, { cache: 'no-cache' });
+    const cacheBuster = Date.now();
+    const response = await fetch(`${TREE_URL}&t=${cacheBuster}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
 
     const tree = await response.json();
@@ -84,8 +84,10 @@ async function loadScripts() {
     if (paths.length === 0) throw new Error('No user scripts found');
 
     return Promise.all(paths.map(async (path) => {
+        const url = `${RAW_BASE}${path}?t=${cacheBuster}`;
+
         try {
-            return await fetchScript(path);
+            return await fetchScript(path, url);
         } catch {
             return {
                 path,

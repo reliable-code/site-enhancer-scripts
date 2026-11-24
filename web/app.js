@@ -24,8 +24,10 @@ const errorState = document.querySelector('#error-state');
 const errorMessage = document.querySelector('#error-message');
 const retryButton = document.querySelector('#retry-button');
 const scriptCount = document.querySelector('#script-count');
+const sortSelect = document.querySelector('#script-sort');
 
 let loaded = false;
+let loadedScripts = [];
 
 function parseMetadata(text) {
     const metadata = {};
@@ -98,6 +100,31 @@ async function loadScripts() {
             };
         }
     }));
+}
+
+function compareVersions(left, right) {
+    const leftParts = left.version.split('.').map((part) => Number(part) || 0);
+    const rightParts = right.version.split('.').map((part) => Number(part) || 0);
+    const length = Math.max(leftParts.length, rightParts.length);
+
+    for (let index = 0; index < length; index += 1) {
+        const difference = (rightParts[index] || 0) - (leftParts[index] || 0);
+        if (difference !== 0) return difference;
+    }
+
+    return 0;
+}
+
+function sortScripts(scripts, mode) {
+    const sorted = [...scripts];
+
+    if (mode === 'name') {
+        sorted.sort((left, right) => left.name.localeCompare(right.name));
+    } else {
+        sorted.sort((left, right) => compareVersions(left, right) || left.name.localeCompare(right.name));
+    }
+
+    return sorted;
 }
 
 function createCard(script) {
@@ -191,9 +218,10 @@ function applySearch() {
 }
 
 function render(scripts) {
+    loadedScripts = scripts;
     const groups = new Map(CATEGORIES.map((category) => [category.id, []]));
 
-    scripts.forEach((script) => {
+    sortScripts(scripts, sortSelect.value).forEach((script) => {
         const categoryId = script.path.split('/')[0];
         if (groups.has(categoryId)) groups.get(categoryId).push(script);
     });
@@ -236,6 +264,9 @@ async function init() {
 }
 
 search.addEventListener('input', applySearch);
+sortSelect.addEventListener('change', () => {
+    if (loaded) render(loadedScripts);
+});
 retryButton.addEventListener('click', init);
 
 init();

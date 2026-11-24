@@ -24,7 +24,16 @@
                 <span class="visually-hidden">Search scripts</span>
                 <input id="script-search" type="search" placeholder="Search scripts" autocomplete="off">
             </label>
-            <p id="result-count" class="result-count">Loading scripts…</p>
+            <div class="toolbar-actions">
+                <p id="result-count" class="result-count">Loading scripts…</p>
+                <label class="sort-box">
+                    <span class="visually-hidden">Sort scripts</span>
+                    <select id="script-sort">
+                        <option value="newest">Newest first</option>
+                        <option value="name">Name A–Z</option>
+                    </select>
+                </label>
+            </div>
         </div>
 
         <div id="script-list"></div>

@@ -256,10 +256,38 @@ h1 {
     outline-offset: 2px;
 }
 
-.empty-state {
+.empty-state,
+.error-state {
     padding: 56px 0;
     color: var(--muted);
     text-align: center;
+}
+
+.error-state p {
+    margin-bottom: 16px;
+}
+
+.error-state button {
+    min-height: 40px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    background: var(--green);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.error-state button:hover {
+    background: #0e5139;
+    transform: translateY(-1px);
+}
+
+.error-state button:focus-visible {
+    outline: 3px solid rgba(23, 107, 77, 0.3);
+    outline-offset: 2px;
 }
 
 .page-footer {

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Site Enhancer Scripts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Personal toolkit</p>
+                <h1>Site enhancer scripts</h1>
+                <p class="hero-description">Small browser tools for a calmer, more useful web.</p>
+            </div>
+            <div class="hero-count"><strong id="script-count">…</strong><span>available tools</span></div>
+        </header>
+
+        <div class="toolbar">
+            <label class="search-box">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <span class="visually-hidden">Search scripts</span>
+                <input id="script-search" type="search" placeholder="Search scripts" autocomplete="off">
+            </label>
+            <p id="result-count" class="result-count">Loading scripts…</p>
+        </div>
+
+        <div id="script-list"></div>
+
+        <noscript>
+            <p class="empty-state">This site needs JavaScript to load scripts from GitHub.</p>
+        </noscript>
+
+        <p id="empty-state" class="empty-state" hidden>No scripts match your search.</p>
+        <div id="error-state" class="error-state" hidden>
+            <p id="error-message">Could not load scripts.</p>
+            <button id="retry-button" type="button">Retry</button>
+        </div>
+
+        <footer class="page-footer">Install with your userscript manager.</footer>
+    </main>
+    <script src="app.js" defer></script>
+</body>
+</html>

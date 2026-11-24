@@ -4,7 +4,7 @@
       "path": "systematic/ali.user.js",
       "name": "Aliexpress product cards filter",
       "description": "Hide product cards by filter",
-      "version": "1.0.79546543"
+      "version": "1.0.79555548"
     },
     {
       "path": "systematic/dgis.user.js",
@@ -16,7 +16,7 @@
       "path": "systematic/dns.user.js",
       "name": "DNS product cards filter",
       "description": "Hide product cards by filter",
-      "version": "1.0.79546543"
+      "version": "1.0.79555548"
     },
     {
       "path": "systematic/habr.user.js",
@@ -76,7 +76,7 @@
       "path": "systematic/ozon.user.js",
       "name": "Ozon enhancer",
       "description": "Hide product cards by filter, enhance product page, store price history & rating",
-      "version": "3.1.79546543"
+      "version": "3.1.79555548"
     },
     {
       "path": "systematic/pepper.user.js",
@@ -100,7 +100,7 @@
       "path": "systematic/sima.user.js",
       "name": "Sima-land enhancer",
       "description": "Hide product cards by filter, store price history",
-      "version": "1.0.79546543"
+      "version": "1.0.79555548"
     },
     {
       "path": "systematic/uteka.user.js",
@@ -124,7 +124,7 @@
       "path": "systematic/wb.user.js",
       "name": "WB enhancer",
       "description": "Hide product cards by filter, store price history",
-      "version": "2.0.79546543"
+      "version": "2.0.79555548"
     },
     {
       "path": "systematic/yamaps.user.js",
@@ -136,7 +136,7 @@
       "path": "systematic/yamkt.user.js",
       "name": "Yamarket product cards filter",
       "description": "Hide product cards by filter",
-      "version": "1.0.79546543"
+      "version": "1.0.79555548"
     }
   ]
 }

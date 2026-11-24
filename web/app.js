@@ -25,6 +25,7 @@ const errorMessage = document.querySelector('#error-message');
 const retryButton = document.querySelector('#retry-button');
 const scriptCount = document.querySelector('#script-count');
 const sortSelect = document.querySelector('#script-sort');
+const groupingToggle = document.querySelector('#script-grouping');
 
 let loaded = false;
 let loadedScripts = [];
@@ -132,6 +133,13 @@ function createCard(script) {
     return card;
 }
 
+function createGrid(scripts) {
+    const grid = document.createElement('div');
+    grid.className = 'script-grid';
+    scripts.forEach((script) => grid.append(createCard(script)));
+    return grid;
+}
+
 function createSection(category, scripts) {
     const section = document.createElement('section');
     section.className = 'script-section';
@@ -150,11 +158,15 @@ function createSection(category, scripts) {
 
     heading.append(titleGroup, description);
 
-    const grid = document.createElement('div');
-    grid.className = 'script-grid';
-    scripts.forEach((script) => grid.append(createCard(script)));
+    section.append(heading, createGrid(scripts));
+    return section;
+}
 
-    section.append(heading, grid);
+function createFlatSection(scripts) {
+    const section = document.createElement('section');
+    section.className = 'script-section';
+    section.dataset.category = 'all';
+    section.append(createGrid(scripts));
     return section;
 }
 
@@ -180,21 +192,27 @@ function applySearch() {
 
 function render(scripts) {
     loadedScripts = scripts;
-    const groups = new Map(CATEGORIES.map((category) => [category.id, []]));
-
-    sortScripts(scripts, sortSelect.value).forEach((script) => {
-        const categoryId = script.path.split('/')[0];
-        if (groups.has(categoryId)) groups.get(categoryId).push(script);
-    });
+    const sorted = sortScripts(scripts, sortSelect.value);
 
     scriptList.replaceChildren();
 
-    CATEGORIES.forEach((category) => {
-        const categoryScripts = groups.get(category.id);
-        if (categoryScripts.length > 0) {
-            scriptList.append(createSection(category, categoryScripts));
-        }
-    });
+    if (groupingToggle.checked) {
+        const groups = new Map(CATEGORIES.map((category) => [category.id, []]));
+
+        sorted.forEach((script) => {
+            const categoryId = script.path.split('/')[0];
+            if (groups.has(categoryId)) groups.get(categoryId).push(script);
+        });
+
+        CATEGORIES.forEach((category) => {
+            const categoryScripts = groups.get(category.id);
+            if (categoryScripts.length > 0) {
+                scriptList.append(createSection(category, categoryScripts));
+            }
+        });
+    } else if (sorted.length > 0) {
+        scriptList.append(createFlatSection(sorted));
+    }
 
     scriptCount.textContent = String(scripts.length);
     loaded = true;
@@ -226,6 +244,9 @@ async function init() {
 
 search.addEventListener('input', applySearch);
 sortSelect.addEventListener('change', () => {
+    if (loaded) render(loadedScripts);
+});
+groupingToggle.addEventListener('change', () => {
     if (loaded) render(loadedScripts);
 });
 retryButton.addEventListener('click', init);

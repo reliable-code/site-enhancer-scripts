@@ -1,0 +1,46 @@
+{
+  "scripts": [
+    {
+      "path": "specific/4pda.user.js",
+      "name": "4pda enhancer",
+      "description": "Fixing links, cleaning UI, smart scrolling with notifications",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/asana.user.js",
+      "name": "Asana enhancer",
+      "description": "UI tweaks",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/keenetic.user.js",
+      "name": "Keenetic enhancer",
+      "description": "UI tweaks and device filtering",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/kinozal.user.js",
+      "name": "Kinozal extended search filters",
+      "description": "Kinozal extended filters on search page",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/livebench.user.js",
+      "name": "LiveBench extended leaderboard filters",
+      "description": "Leaderboard extended filters",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/mvideo.user.js",
+      "name": "Mvideo store filter",
+      "description": "Hide stores by filter",
+      "version": "1.0.79423565"
+    },
+    {
+      "path": "specific/telegram.user.js",
+      "name": "Telegram messages filter",
+      "description": "Hide messages by filter",
+      "version": "1.0.79423565"
+    }
+  ]
+}

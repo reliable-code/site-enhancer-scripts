@@ -1,0 +1,142 @@
+{
+  "scripts": [
+    {
+      "path": "systematic/ali.user.js",
+      "name": "Aliexpress product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/dgis.user.js",
+      "name": "2gis reviews filter",
+      "description": "Hide reviews by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/dns.user.js",
+      "name": "DNS product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/habr.user.js",
+      "name": "Habr comments filter",
+      "description": "Hide comments by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/hh.user.js",
+      "name": "Hh enhancer",
+      "description": "Hide vacancy cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/kinop.user.js",
+      "name": "Kinopoisk navigator filter",
+      "description": "Hide movies by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/kuper.user.js",
+      "name": "Kuper product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/lavka.user.js",
+      "name": "Lavka product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/lenta.user.js",
+      "name": "Lenta product cards filter",
+      "description": "Remove product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/medgor.user.js",
+      "name": "Medgor product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/mgmkt.user.js",
+      "name": "MegaMarket product cards & offers filter",
+      "description": "Hide product cards & offers by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/mgntmkt.user.js",
+      "name": "MagnitMarket product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/ozon.user.js",
+      "name": "Ozon enhancer",
+      "description": "Hide product cards by filter, enhance product page, store price history & rating",
+      "version": "3.1.79546543"
+    },
+    {
+      "path": "systematic/pepper.user.js",
+      "name": "Pepper product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/perek.user.js",
+      "name": "Perek product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/prodoc.user.js",
+      "name": "Prodoc enhancer",
+      "description": "Hide doctor cards by filter, enhance doctor page",
+      "version": "2.0.79546543"
+    },
+    {
+      "path": "systematic/sima.user.js",
+      "name": "Sima-land enhancer",
+      "description": "Hide product cards by filter, store price history",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/uteka.user.js",
+      "name": "Uteka product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/vkusv.user.js",
+      "name": "Vkusv product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/vseins.user.js",
+      "name": "Vseins product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/wb.user.js",
+      "name": "WB enhancer",
+      "description": "Hide product cards by filter, store price history",
+      "version": "2.0.79546543"
+    },
+    {
+      "path": "systematic/yamaps.user.js",
+      "name": "Yamaps reviews filter",
+      "description": "Hide reviews by filter",
+      "version": "1.0.79546543"
+    },
+    {
+      "path": "systematic/yamkt.user.js",
+      "name": "Yamarket product cards filter",
+      "description": "Hide product cards by filter",
+      "version": "1.0.79546543"
+    }
+  ]
+}

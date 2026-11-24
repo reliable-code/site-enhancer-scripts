@@ -1,8 +1,7 @@
 const REPO = 'reliable-code/site-enhancer-scripts';
 const BRANCH = 'main';
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
-const TREE_URL = `https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`;
-const SCRIPT_PATTERN = /^(systematic|specific)\/[^/]+\.user\.js$/;
+const INDEX_FILE = 'index.json';
 const TIMESTAMP_SUFFIX = /^\d{8}$/;
 const CATEGORIES = [
     {
@@ -30,85 +29,30 @@ const sortSelect = document.querySelector('#script-sort');
 let loaded = false;
 let loadedScripts = [];
 
-function parseMetadata(text) {
-    const metadata = {};
-    const header = text.split('// ==/UserScript==')[0];
-
-    header.split('\n').forEach((line) => {
-        const match = line.match(/^\/\/\s+@([^\s]+)\s+(.+?)\s*$/);
-        if (match) metadata[match[1]] = match[2];
-    });
-
-    return metadata;
-}
-
-function fileName(path) {
-    return path.split('/').pop().replace(/\.user\.js$/, '');
-}
-
 function versionUpdatedAt(version) {
     const segments = version.split('.');
     const suffix = segments[segments.length - 1];
     return TIMESTAMP_SUFFIX.test(suffix) ? Number(`1${suffix}`) * 10000 : 0;
 }
 
-async function fetchScript(path, url) {
-    const response = await fetch(url, {
-        headers: { Range: 'bytes=0-2047' },
-        cache: 'no-store',
-    });
-
-    if (!response.ok) throw new Error(`Failed to fetch ${path}: ${response.status}`);
-
-    let text = await response.text();
-    let metadata = parseMetadata(text);
-
-    if (!metadata.version && !text.includes('// ==/UserScript==')) {
-        const fullResponse = await fetch(url, { cache: 'no-store' });
-        if (!fullResponse.ok) throw new Error(`Failed to fetch ${path}: ${fullResponse.status}`);
-        text = await fullResponse.text();
-        metadata = parseMetadata(text);
-    }
-
-    return {
-        path,
-        name: metadata.name || fileName(path),
-        description: metadata.description || '',
-        version: metadata.version || '',
-        updatedAt: versionUpdatedAt(metadata.version || ''),
-        downloadURL: metadata.downloadURL || RAW_BASE + path,
-    };
-}
-
 async function loadScripts() {
     const cacheBuster = Date.now();
-    const response = await fetch(`${TREE_URL}&t=${cacheBuster}`, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
 
-    const tree = await response.json();
-    const paths = tree.tree
-        .filter((item) => item.type === 'blob' && SCRIPT_PATTERN.test(item.path))
-        .map((item) => item.path)
-        .sort();
+    const categories = await Promise.all(CATEGORIES.map(async (category) => {
+        const response = await fetch(`${RAW_BASE}${category.id}/${INDEX_FILE}?t=${cacheBuster}`, {
+            cache: 'no-store',
+        });
+        if (!response.ok) throw new Error(`GitHub returned ${response.status} for ${category.id}`);
 
-    if (paths.length === 0) throw new Error('No user scripts found');
-
-    return Promise.all(paths.map(async (path) => {
-        const url = `${RAW_BASE}${path}?t=${cacheBuster}`;
-
-        try {
-            return await fetchScript(path, url);
-        } catch {
-            return {
-                path,
-                name: fileName(path),
-                description: '',
-                version: '',
-                updatedAt: 0,
-                downloadURL: RAW_BASE + path,
-            };
-        }
+        const index = await response.json();
+        return index.scripts.map((script) => ({
+            ...script,
+            updatedAt: versionUpdatedAt(script.version || ''),
+            downloadURL: RAW_BASE + script.path,
+        }));
     }));
+
+    return categories.flat();
 }
 
 function sortScripts(scripts, mode) {
